@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>If you can read this, send help</title>
+
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/moon.css" id="theme">
+
+        <link rel="stylesheet" href="plugin/highlight/monokai.css">
+	</head>
+
+	<body>
+        <div class="slide-background">
+
+        </div>
+
+		<div class="reveal">
+
+			<div class="slides">
+
+                <!-- Use external markdown resource -->
+                <section data-markdown="./markdown/01-foo.md" data-separator="---" data-separator-vertical="^\n\n"></section>
+                </div>
+
+            </div>
+		</div>
+
+		<script src="./dist/reveal.js"></script>
+        <script src="./plugin/markdown/markdown.js"></script>
+        <script src="./plugin/highlight/highlight.js"></script>
+        <script src="./plugin/notes/notes.js"></script>
+        <script src="./plugin/math/math.js"></script>
+
+		<script>
+
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+                // katex: {
+                //   version: 'latest',
+                //   delimiters: [
+                //     {left: '$$', right: '$$', display: true},
+                //     {left: '$', right: '$', display: false},
+                //     {left: '\\(', right: '\\)', display: false},
+                //     {left: '\\[', right: '\\]', display: true}
+                //  ],
+                //  ignoredTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+                // },
+                //
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes/* , RevealMath.KaTeX */ ]
+			});
+
+		</script>
+        <style type="text/css">
+            /* 1. Style header/footer <div> so they are positioned as desired. */
+            #footer-left {
+                position: absolute;
+                bottom: 0%;
+                left: 1%;
+            }
+            #footer-right {
+                position: absolute;
+                bottom: 2%;
+                left: 88% ;
+            }
+        </style>
+
+        <!-- 2. Create hidden header/footer <div> -->
+        <div id="hidden" style="display:none;">
+            <div id="header">
+                <div id="footer-left">
+                </div>
+                <div id="footer-right">
+                    Joakim Lier
+                </div>
+            </div>
+        </div>
+
+        <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+        <script type="text/javascript">
+            // 3. On Reveal.js ready event, copy header/footer <div> into each `.slide-background` <div>
+            var header = $('#header').html();
+            if ( window.location.search.match( /print-pdf/gi ) ) {
+                Reveal.addEventListener( 'ready', function( event ) {
+                    $('.slide-background').append(header);
+                });
+            }
+            else {
+                $('div.reveal').append(header);
+           }
+        </script>
+	</body>
+</html>
